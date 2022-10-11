@@ -20,69 +20,10 @@ DROP DATABASE IF EXISTS `instruwb`;
 CREATE DATABASE IF NOT EXISTS `instruwb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `instruwb`;
 
--- Structuur van  tabel instruwb.features wordt geschreven
-DROP TABLE IF EXISTS `features`;
-CREATE TABLE IF NOT EXISTS `features` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `brand` varchar(255) NOT NULL,
-  `length` varchar(255) NOT NULL,
-  `height` varchar(255) NOT NULL,
-  `productId` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporteren was gedeselecteerd
-
--- Structuur van  tabel instruwb.main_category wordt geschreven
-DROP TABLE IF EXISTS `main_category`;
-CREATE TABLE IF NOT EXISTS `main_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporteren was gedeselecteerd
-
--- Structuur van  tabel instruwb.product wordt geschreven
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `name` text DEFAULT NULL,
-  `image` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `supply` enum('out','almost','in') DEFAULT 'in',
-  `main_categoryId` int(11) DEFAULT NULL,
-  `sub_categoryId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporteren was gedeselecteerd
-
--- Structuur van  tabel instruwb.rating wordt geschreven
-DROP TABLE IF EXISTS `rating`;
-CREATE TABLE IF NOT EXISTS `rating` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `rating` int(11) NOT NULL DEFAULT 0,
-  `productId` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporteren was gedeselecteerd
-
--- Structuur van  tabel instruwb.sub_category wordt geschreven
-DROP TABLE IF EXISTS `sub_category`;
-CREATE TABLE IF NOT EXISTS `sub_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporteren was gedeselecteerd
-
 -- Structuur van  tabel instruwb.user wordt geschreven
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
+  `username` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `emailaddress` varchar(255) NOT NULL,
@@ -92,15 +33,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   `postalcode` varchar(255) NOT NULL,
   `phonenumber` varchar(50) NOT NULL,
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `role` smallint(6) NOT NULL,
+  `role` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Data exporteren was gedeselecteerd
-
-INSERT INTO user
-    (firstname, lastname, emailaddress, PASSWORD, verified, address, postalcode, ROLE, phonenumber)
-    VALUES ('Nick', 'Welles', 'nickwelles@live.nl', 'test123', 0, 'Sintelweg 1', '5971PC', 2, '0622280709');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

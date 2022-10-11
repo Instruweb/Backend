@@ -1,5 +1,6 @@
 package com.instruweb.resource;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -27,6 +28,7 @@ public class UserResource {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Transactional
     public Response createUser(User user) {
         User userWithId = userService.createUser(user);

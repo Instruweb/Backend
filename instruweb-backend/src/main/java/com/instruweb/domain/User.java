@@ -1,33 +1,37 @@
 package com.instruweb.domain;
 
 import javax.persistence.*;
-import io.quarkus.resteasy.reactive.jackson.SecureField;
+
+import io.quarkus.security.jpa.Password;
+import io.quarkus.security.jpa.Roles;
+import io.quarkus.security.jpa.UserDefinition;
+import io.quarkus.security.jpa.Username;
 
 @Entity
+@UserDefinition
 public class User {
-    public enum Role {
-        User,
-        Admin
-    }
-
-    // @SecureField(rolesAllowed = "admin")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Username
+    private String username;
     private String firstname;
     private String lastname;
     private String emailaddress;
+    @Password
     private String password;
     private boolean verified;
-    private Integer role;
+    @Roles
+    private String role;
     private String address;
     private String postalcode;
     private String phonenumber;
 
     public User() {}
 
-    public User(Integer id, String firstname, String lastname, String emailaddress, String password, boolean verified, Integer role, String address, String postalcode, String phonenumber) {
+    public User(Integer id, String username, String firstname, String lastname, String emailaddress, String password, boolean verified, String role, String address, String postalcode, String phonenumber) {
         this.id = id;
+        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.emailaddress = emailaddress;
@@ -42,6 +46,10 @@ public class User {
     public Integer getId() {
         return id;
     }
+
+    public String getUsername() {return username;}
+
+    public void setUsername(String username) {this.username = username;}
 
     public String getFirstname() {
         return firstname;
@@ -67,9 +75,9 @@ public class User {
 
     public void setVerified(Boolean verified) {this.verified = verified;}
 
-    public Integer getRole() { return role; }
+    public String getRole() { return role; }
 
-    public void setRole(Integer role) {this.role = role;}
+    public void setRole(String role) {this.role = role;}
 
     public String getPassword() {
         return password;

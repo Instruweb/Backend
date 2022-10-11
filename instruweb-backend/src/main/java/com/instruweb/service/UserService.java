@@ -2,6 +2,7 @@ package com.instruweb.service;
 
 import com.instruweb.domain.User;
 import com.instruweb.repository.UserRepository;
+import io.quarkus.elytron.security.common.BcryptUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -25,12 +26,25 @@ public class UserService {
     }
 
     public User createUser(User user) {
+        User createUser = new User();
+
         if (user == null) {
             throw new NotFoundException();
         }
 
-        userRepository.persist(user);
+        createUser.setUsername(user.getUsername());
+        createUser.setFirstname(user.getFirstname());
+        createUser.setLastname(user.getLastname());
+        createUser.setEmailaddress(user.getEmailaddress());
+        createUser.setAddress(user.getAddress());
+        createUser.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
+        createUser.setRole(user.getRole());
+        createUser.setPostalcode(user.getPostalcode());
+        createUser.setVerified(user.getVerified());
+        createUser.setPhonenumber(user.getPhonenumber());
 
-        return user;
+        userRepository.persist(createUser);
+
+        return createUser;
     }
 }
