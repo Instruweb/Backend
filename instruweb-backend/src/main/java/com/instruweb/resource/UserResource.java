@@ -28,7 +28,7 @@ public class UserResource {
     }
 
     @POST
-    @RolesAllowed("admin")
+    //@RolesAllowed("admin")
     @Transactional
     public Response createUser(User user) {
         User userWithId = userService.createUser(user);

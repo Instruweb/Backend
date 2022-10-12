@@ -26,25 +26,14 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        User createUser = new User();
-
         if (user == null) {
             throw new NotFoundException();
         }
 
-        createUser.setUsername(user.getUsername());
-        createUser.setFirstname(user.getFirstname());
-        createUser.setLastname(user.getLastname());
-        createUser.setEmailaddress(user.getEmailaddress());
-        createUser.setAddress(user.getAddress());
-        createUser.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
-        createUser.setRole(user.getRole());
-        createUser.setPostalcode(user.getPostalcode());
-        createUser.setVerified(user.getVerified());
-        createUser.setPhonenumber(user.getPhonenumber());
+        user.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
 
-        userRepository.persist(createUser);
+        userRepository.persist(user);
 
-        return createUser;
+        return user;
     }
 }
