@@ -2,14 +2,14 @@ package com.instruweb.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(generator = "UUID")
+    private UUID id;
     private String name;
     private String image;
     private String description;
@@ -19,7 +19,7 @@ public class Product {
 
     public Product() {}
 
-    public Product(Integer id, String name, String image, String description, String supply, Integer main_categoryId, Integer sub_categoryId) {
+    public Product(UUID id, String name, String image, String description, String supply, Integer main_categoryId, Integer sub_categoryId) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -29,7 +29,7 @@ public class Product {
         this.sub_categoryId = sub_categoryId;
     }
 
-    public Integer getId() {return id;}
+    public UUID getId() {return id;}
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
     public String getImage() {return image;}

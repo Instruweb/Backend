@@ -27,7 +27,7 @@ public class UserService {
 
     public User createUser(User user) {
         if (user == null) {
-            throw new NotFoundException();
+            throw new IllegalArgumentException();
         }
 
         user.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
