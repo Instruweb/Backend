@@ -12,6 +12,7 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
 import java.net.URI;
+import java.util.List;
 
 @ApplicationScoped
 public class ProductService {
@@ -28,6 +29,16 @@ public class ProductService {
         }
 
         return product;
+    }
+
+    public List<Product> getAllProducts() {
+        List<Product> productList = productRepository.listAll();
+
+        if (productList == null) {
+            throw new NotFoundException();
+        }
+
+        return productList;
     }
 
     public Product createProduct(Product product) {

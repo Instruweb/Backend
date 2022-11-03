@@ -1,7 +1,6 @@
 package com.instruweb.resource;
 
 import com.instruweb.domain.Product;
-import com.instruweb.domain.User;
 import com.instruweb.service.ProductService;
 
 import javax.annotation.security.RolesAllowed;
@@ -11,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
+import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -26,6 +26,10 @@ public class ProductResource {
     public Product getProduct(String name) {
         return productService.getProduct(name);
     }
+
+    @GET
+    @Path("/all")
+    public List<Product> getAllProducts() { return productService.getAllProducts(); }
 
     @POST
     @RolesAllowed("admin")
