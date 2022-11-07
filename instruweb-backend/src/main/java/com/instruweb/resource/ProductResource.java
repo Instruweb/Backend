@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -28,8 +29,18 @@ public class ProductResource {
     }
 
     @GET
+    @Path("/id/{id}")
+    public Product getProductById(Integer id) {
+        return productService.getProductById(id);
+    }
+
+    @GET
     @Path("/all")
     public List<Product> getAllProducts() { return productService.getAllProducts(); }
+
+    @GET
+    @Path("/main_category/{id}")
+    public List<Product> getAllProductsByMainCategoryId(Integer id) { return productService.getAllProductsByMainCategoryId(id); }
 
     @POST
     @RolesAllowed("admin")
