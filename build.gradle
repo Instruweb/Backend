@@ -22,6 +22,7 @@ dependencies {
 
 group 'com.instruweb'
 version '1.0-SNAPSHOT'
+sourceCompatibility = 17
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
