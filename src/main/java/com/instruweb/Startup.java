@@ -59,22 +59,34 @@ public class Startup {
     public void loadProducts(@Observes StartupEvent evt) {
         Product product = new Product();
         Product product2 = new Product();
+        Product product3 = new Product();
 
         product.setName("Gitaar");
+        product.setPrice(250.6);
         product.setDescription("Een mooie gitaar met 6 snaren.");
-        product.setImage("null");
+        product.setImage("gitaar.webp");
         product.setSupply("Full");
         product.setMain_categoryId(1);
         product.setSub_categoryId(1);
 
         product2.setName("Fender Gitaar");
+        product2.setPrice(350.2);
         product2.setDescription("Een mooie gitaar van Fender met 6 snaren.");
-        product2.setImage("null");
+        product2.setImage("fender_gitaar.jpg");
         product2.setSupply("Full");
         product2.setMain_categoryId(1);
-        product2.setSub_categoryId(1);
+        product2.setSub_categoryId(2);
+
+        product3.setName("Les Paul Gitaar");
+        product3.setPrice(499.99);
+        product3.setDescription("Een mooie gitaar van Les Paul met 7 snaren.");
+        product3.setImage("gitaar.webp");
+        product3.setSupply("Half");
+        product3.setMain_categoryId(2);
+        product3.setSub_categoryId(1);
 
         productRepository.persist(product);
         productRepository.persist(product2);
+        productRepository.persist(product3);
     }
 }

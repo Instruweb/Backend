@@ -13,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @ApplicationScoped
 public class ProductService {
@@ -31,8 +32,28 @@ public class ProductService {
         return product;
     }
 
+    public Product getProductById(Integer id) {
+        Product product = productRepository.find("id", id).firstResult();
+
+        if (product == null) {
+            throw new NotFoundException();
+        }
+
+        return product;
+    }
+
     public List<Product> getAllProducts() {
         List<Product> productList = productRepository.listAll();
+
+        if (productList == null) {
+            throw new NotFoundException();
+        }
+
+        return productList;
+    }
+
+    public List<Product> getAllProductsByMainCategoryId(Integer id) {
+        List<Product> productList = productRepository.find("main_categoryId", id).list();
 
         if (productList == null) {
             throw new NotFoundException();
