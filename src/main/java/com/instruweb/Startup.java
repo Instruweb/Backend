@@ -72,7 +72,7 @@ public class Startup {
         product2.setName("Fender Gitaar");
         product2.setPrice(350.2);
         product2.setDescription("Een mooie gitaar van Fender met 6 snaren.");
-        product2.setImage("gitaar.webp");
+        product2.setImage("fender_gitaar.jpg");
         product2.setSupply("Full");
         product2.setMain_categoryId(1);
         product2.setSub_categoryId(2);
