@@ -3,7 +3,7 @@ package com.instruweb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(schema = "main_category")
+@Table(name = "main_category")
 public class MainCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
