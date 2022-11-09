@@ -9,6 +9,7 @@ import io.quarkus.security.jpa.Username;
 
 @Entity
 @UserDefinition
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
