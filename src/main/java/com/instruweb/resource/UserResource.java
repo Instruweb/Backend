@@ -9,34 +9,40 @@ import javax.ws.rs.core.Response;
 
 import com.instruweb.domain.User;
 import com.instruweb.service.UserService;
+import io.quarkus.security.Authenticated;
 import io.quarkus.security.UnauthorizedException;
+import io.quarkus.security.identity.SecurityIdentity;
+import org.jboss.resteasy.reactive.NoCache;
 
 import java.net.URI;
 import java.util.Objects;
 
+@Authenticated
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/api/users")
 public class UserResource {
+
     @Inject
     UserService userService;
+
+    @Inject
+    SecurityIdentity identity;
 
     public UserResource(){}
 
     @GET
     @Path("/{emailaddress}")
+    @NoCache
     public User getUser(String emailaddress) {
         return userService.getUser(emailaddress);
     }
 
-    @POST
-    @Transactional
-    public Response createUser(User user) {
-        if (Objects.equals(user.getRole(), "admin")) {
-            throw new UnauthorizedException();
-        }
-
-        User userWithId = userService.createUser(user);
-        return Response.created(URI.create("/api/users/" + userWithId.getId())).build();
+    @GET
+    @Path("/me")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String user() {
+        User user = userService.getUser("nick@welles.com");
+        return user.getEmailaddress();
     }
 }

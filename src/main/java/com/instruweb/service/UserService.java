@@ -24,16 +24,4 @@ public class UserService {
 
         return user;
     }
-
-    public User createUser(User user) {
-        if (user == null) {
-            throw new IllegalArgumentException();
-        }
-
-        user.setPassword(BcryptUtil.bcryptHash(user.getPassword()));
-
-        userRepository.persist(user);
-
-        return user;
-    }
 }
