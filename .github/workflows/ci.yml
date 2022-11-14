@@ -7,6 +7,11 @@ on:
 jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
+    services:
+      keycloak:
+        image: forevigt/instruweb:latest
+        ports:
+          - 8484:8484
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17

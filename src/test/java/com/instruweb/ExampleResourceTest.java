@@ -1,5 +1,6 @@
 package com.instruweb;
 
+import com.instruweb.resource.ProductResource;
 import com.instruweb.resource.UserResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
@@ -10,15 +11,15 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-@TestHTTPEndpoint(UserResource.class)
+@TestHTTPEndpoint(ProductResource.class)
 public class ExampleResourceTest {
 
     @Test
     public void testHelloEndpoint() {
         given()
-                .when().get()
+                .when().get("/Gitaar")
                 .then()
-                .statusCode(405);
+                .statusCode(401);
     }
 
 }

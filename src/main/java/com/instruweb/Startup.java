@@ -29,9 +29,8 @@ public class Startup {
     public void loadUsers(@Observes StartupEvent evt) {
         User user = new User();
 
-        user.setUsername("Nickwelles");
+        user.setUsername("admin");
         user.setEmailaddress("nick@welles.com");
-        user.setPassword(BcryptUtil.bcryptHash("ditiseenwachtwoord"));
         user.setPhonenumber("0622280709");
         user.setFirstname("Nick");
         user.setLastname("Welles");
