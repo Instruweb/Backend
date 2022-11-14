@@ -2,7 +2,6 @@ package com.instruweb.service;
 
 import com.instruweb.domain.User;
 import com.instruweb.repository.UserRepository;
-import io.quarkus.elytron.security.common.BcryptUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

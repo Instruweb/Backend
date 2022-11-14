@@ -46,12 +46,22 @@ public class Startup {
     public void loadCategories(@Observes StartupEvent evt) {
         MainCategory mainCategory = new MainCategory();
         MainCategory mainCategory2 = new MainCategory();
+        MainCategory mainCategory3 = new MainCategory();
+        MainCategory mainCategory4 = new MainCategory();
 
-        mainCategory.setName("Gitaar");
-        mainCategory2.setName("Akoestische Gitaar");
+        mainCategory.setName("Gitaren");
+        mainCategory.setImage("gitaren.png");
+        mainCategory2.setName("Hoofdtelefoons");
+        mainCategory2.setImage("hoofdtelefoons.png");
+        mainCategory3.setName("Microfoons");
+        mainCategory3.setImage("microfoons.png");
+        mainCategory4.setName("Studio & Recording");
+        mainCategory4.setImage("studio.webp");
 
         mainCategoryRepository.persist(mainCategory);
         mainCategoryRepository.persist(mainCategory2);
+        mainCategoryRepository.persist(mainCategory3);
+        mainCategoryRepository.persist(mainCategory4);
     }
 
     @Transactional
@@ -63,7 +73,7 @@ public class Startup {
         product.setName("Gitaar");
         product.setPrice(250.6);
         product.setDescription("Een mooie gitaar met 6 snaren.");
-        product.setImage("gitaar.webp");
+        product.setImage("fazely.png");
         product.setSupply("Full");
         product.setMain_categoryId(1);
         product.setSub_categoryId(1);
@@ -74,14 +84,14 @@ public class Startup {
         product2.setImage("fender_gitaar.jpg");
         product2.setSupply("Full");
         product2.setMain_categoryId(1);
-        product2.setSub_categoryId(2);
+        product2.setSub_categoryId(1);
 
         product3.setName("Les Paul Gitaar");
         product3.setPrice(499.99);
         product3.setDescription("Een mooie gitaar van Les Paul met 7 snaren.");
         product3.setImage("gitaar.webp");
         product3.setSupply("Half");
-        product3.setMain_categoryId(2);
+        product3.setMain_categoryId(1);
         product3.setSub_categoryId(1);
 
         productRepository.persist(product);
