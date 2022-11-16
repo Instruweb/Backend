@@ -29,13 +29,9 @@ public class Startup {
     public void loadUsers(@Observes StartupEvent evt) {
         User user = new User();
 
-        user.setUsername("admin");
+        user.setUsername("nickwelles");
         user.setEmailaddress("nick@welles.com");
         user.setPhonenumber("0622280709");
-        user.setFirstname("Nick");
-        user.setLastname("Welles");
-        user.setVerified(true);
-        user.setRole("admin");
         user.setAddress("Sintelweg 1");
         user.setPostalcode("5971 PC");
 
@@ -69,6 +65,7 @@ public class Startup {
         Product product = new Product();
         Product product2 = new Product();
         Product product3 = new Product();
+        Product product4 = new Product();
 
         product.setName("Gitaar");
         product.setPrice(250.6);
@@ -94,8 +91,17 @@ public class Startup {
         product3.setMain_categoryId(1);
         product3.setSub_categoryId(1);
 
+        product4.setName("Devine koptelefoon");
+        product4.setPrice(159.99);
+        product4.setDescription("Een mooie koptelefoon die je kunt gebruiken in de studio om bijvoorbeeld te mixen/masteren of om muziek op te luisteren.");
+        product4.setImage("koptelefoon2.webp");
+        product4.setSupply("Half");
+        product4.setMain_categoryId(2);
+        product4.setSub_categoryId(1);
+
         productRepository.persist(product);
         productRepository.persist(product2);
         productRepository.persist(product3);
+        productRepository.persist(product4);
     }
 }

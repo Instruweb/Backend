@@ -14,7 +14,6 @@ import java.net.URI;
 import java.util.List;
 
 @Path("/api/products")
-@Authenticated
 public class ProductResource {
     @Inject
     ProductService productService;
