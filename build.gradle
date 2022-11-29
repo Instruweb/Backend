@@ -23,11 +23,11 @@ dependencies {
     implementation 'io.quarkus:quarkus-security-jpa'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+    testImplementation 'io.quarkus:quarkus-test-security'
 }
 
 group 'com.instruweb'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 17
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
