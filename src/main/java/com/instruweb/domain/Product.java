@@ -1,20 +1,17 @@
 package com.instruweb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
     private Double price;
     private String image;
+    @Column(columnDefinition="TEXT")
     private String description;
     private String supply;
     private Integer main_categoryId;

@@ -7,18 +7,15 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/instruweb-backend-jvm .
+# docker build -f src/main/docker/Dockerfile.jvm -t forevigt/quarkus .
+#
+# Compose the docker-compose.quarkus.yml file
+#
+# docker-compose -f docker-compose.quarkus.yml up -d
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/instruweb-backend-jvm
-#
-# If you want to include the debug port into your docker image
-# you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005
-#
-# Then run the container using :
-#
-# docker run -i --rm -p 8080:8080 quarkus/instruweb-backend-jvm
+# docker run -i --rm -p 8080:8080 -e QUARKUS_KEYCLOAK_SECRET= -e DATABASE_PASS= --network=backend_backend forevigt/quarkus
 #
 # This image uses the `run-java.sh` script to run the application.
 # This scripts computes the command line to execute your Java application, and
