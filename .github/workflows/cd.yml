@@ -1,4 +1,4 @@
-name: Build and deploy Docker compose
+name: Build Docker
 
 on:
   push:

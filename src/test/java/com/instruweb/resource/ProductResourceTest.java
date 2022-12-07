@@ -3,6 +3,7 @@ package com.instruweb.resource;
 import com.instruweb.domain.Product;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.security.TestSecurity;
 import org.apache.http.HttpHeaders;
 import org.junit.jupiter.api.Test;
 
@@ -37,6 +38,7 @@ public class ProductResourceTest {
     }
 
     @Test
+    @TestSecurity(user = "admin", roles = "admin")
     public void testCreateProduct() {
         final Product product = new Product();
 
@@ -53,7 +55,7 @@ public class ProductResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                .post("/")
+                .post("/admin/create")
                 .then()
                 .statusCode(201);
     }
