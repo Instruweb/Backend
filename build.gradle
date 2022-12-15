@@ -47,7 +47,7 @@ compileTestJava {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "Backend"
+        property "sonar.projectKey", "instruweb"
         property "sonar.organization", "Instruweb"
         property "sonar.host.url", "https://sonarcloud.io"
     }
