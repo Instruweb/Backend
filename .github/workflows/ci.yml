@@ -37,8 +37,8 @@ jobs:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
-      - name: Build and analyze in SonarCloud
+      - name: Test, Build and analyze in SonarCloud
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_KEY }}
-        run: ./gradlew build sonarqube --info
+        run: ./gradlew jacocoTestReport && ./gradlew build sonarqube --info
