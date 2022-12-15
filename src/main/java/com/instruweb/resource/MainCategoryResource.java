@@ -25,6 +25,6 @@ public class MainCategoryResource {
     public MainCategory getMainCategory(String name) {return mainCategoryService.getMainCategory(name);}
 
     @GET
-    @Path("/all")
+    @Path("/")
     public List<MainCategory> getAllMainCategories() {return mainCategoryService.getAllMainCategories();}
 }

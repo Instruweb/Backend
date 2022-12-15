@@ -20,7 +20,7 @@ public class MainCategoryResourceTest {
     @Test
     public void testGetAllCategories() {
         given()
-                .when().get("/all")
+                .when().get("/")
                 .then()
                 .statusCode(200);
     }
