@@ -1,19 +1,12 @@
 package com.instruweb.service;
 
 import com.instruweb.domain.Product;
-import com.instruweb.domain.User;
 import com.instruweb.repository.ProductRepository;
-import io.quarkus.elytron.security.common.BcryptUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.NotFoundException;
-import javax.ws.rs.POST;
-import javax.ws.rs.core.Response;
-import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 @ApplicationScoped
 public class ProductService {

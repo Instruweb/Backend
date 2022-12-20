@@ -4,9 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-@NamedQueries({
-        @NamedQuery(name = "User.updateUser", query = "update User set address = :address, postalcode = :postalcode, phonenumber = :phonenumber where username = :username"),
-        @NamedQuery(name = "User.getByUsername", query = "from User where username = :username"),})
+@NamedQuery(name = "User.updateUser", query = "update User set address = :address, postalcode = :postalcode, phonenumber = :phonenumber where username = :username")
+@NamedQuery(name = "User.getByUsername", query = "from User where username = :username")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

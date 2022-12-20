@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 @TestHTTPEndpoint(ProductResource.class)
 public class ProductResourceTest {
     @Test
-    public void testGetProductByName() {
+    void testGetProductByName() {
         given()
                 .when().get("Fender Gitaar")
                 .then()
@@ -23,7 +23,7 @@ public class ProductResourceTest {
     }
 
     @Test
-    public void testGetProductById() {
+    void testGetProductById() {
         given()
                 .when().get("/id/1")
                 .then()
@@ -31,7 +31,7 @@ public class ProductResourceTest {
     }
 
     @Test
-    public void testGetProductsByMainCategoryId() {
+    void testGetProductsByMainCategoryId() {
         given()
                 .when().get("/main_category/1")
                 .then().statusCode(200);
@@ -39,7 +39,7 @@ public class ProductResourceTest {
 
     @Test
     @TestSecurity(user = "admin", roles = "admin")
-    public void testCreateProduct() {
+    void testCreateProduct() {
         final Product product = new Product();
 
         product.setName("Standaard Gitaar");

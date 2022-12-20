@@ -15,7 +15,7 @@ public class MainCategoryServiceTest {
     MainCategoryService mainCategoryService;
 
     @Test
-    public void testGetMainCategoryByName() {
+    void testGetMainCategoryByName() {
         // Arrange
         String categoryName = "Gitaren";
 
@@ -27,7 +27,7 @@ public class MainCategoryServiceTest {
     }
 
     @Test
-    public void testGetAllMainCategories() {
+    void testGetAllMainCategories() {
         // Arrange
         List<MainCategory> mainCategoryList = new ArrayList<>();
 
