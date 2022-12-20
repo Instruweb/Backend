@@ -4,7 +4,6 @@ import com.instruweb.domain.Product;
 import com.instruweb.service.ProductService;
 import io.quarkus.security.Authenticated;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;

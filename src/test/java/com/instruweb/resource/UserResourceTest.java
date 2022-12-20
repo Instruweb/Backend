@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class UserResourceTest {
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
-    public void testGetUserByUsername() {
+    void testGetUserByUsername() {
         given()
                 .when().get("/nickwelles")
                 .then()
@@ -24,7 +24,7 @@ public class UserResourceTest {
 
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
-    public void testRegisterNewUser() {
+    void testRegisterNewUser() {
         given()
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
@@ -36,7 +36,7 @@ public class UserResourceTest {
 
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
-    public void testUpdateUser() {
+    void testUpdateUser() {
         given()
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
@@ -48,7 +48,7 @@ public class UserResourceTest {
 
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
-    public void testUpdateAnotherUser() {
+    void testUpdateAnotherUser() {
         given()
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)

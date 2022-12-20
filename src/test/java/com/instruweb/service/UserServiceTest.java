@@ -16,7 +16,7 @@ public class UserServiceTest {
 
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
-    public void testGetUserByUsername() {
+    void testGetUserByUsername() {
         // Arrange
         String username = "nickwelles";
 
@@ -28,7 +28,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testCheckIfUserAlreadyExists() {
+    void testCheckIfUserAlreadyExists() {
         // Arrange
         String username = "nickwelles";
 
@@ -41,7 +41,7 @@ public class UserServiceTest {
 
     @Test
     @Transactional
-    public void testRegisterNewUser() {
+    void testRegisterNewUser() {
         // Arrange
         User user = new User();
 
@@ -61,7 +61,7 @@ public class UserServiceTest {
     @Test
     @TestSecurity(user = "nickwelles", roles = "user")
     @Transactional
-    public void testUpdateUser() {
+    void testUpdateUser() {
         // Arrange
         String username = "nickwelles";
 

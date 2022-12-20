@@ -14,7 +14,7 @@ public class ProductServiceTest {
     ProductService productService;
 
     @Test
-    public void testGetProductByName() {
+    void testGetProductByName() {
         // Arrange
         String productName = "Gitaar";
 
@@ -26,7 +26,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void testGetProductById() {
+    void testGetProductById() {
         // Arrange
         Integer productId = 1;
 
@@ -39,7 +39,7 @@ public class ProductServiceTest {
 
     @Test
     @Transactional
-    public void testCreateNewProduct() {
+    void testCreateNewProduct() {
         // Arrange
         Product insertProduct = new Product();
 

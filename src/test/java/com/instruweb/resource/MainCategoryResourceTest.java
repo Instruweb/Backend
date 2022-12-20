@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 @TestHTTPEndpoint(MainCategoryResource.class)
 public class MainCategoryResourceTest {
     @Test
-    public void testGetCategoryByName() {
+    void testGetCategoryByName() {
         given()
                 .when().get("/Gitaren")
                 .then()
@@ -18,7 +18,7 @@ public class MainCategoryResourceTest {
     }
 
     @Test
-    public void testGetAllCategories() {
+    void testGetAllCategories() {
         given()
                 .when().get("/")
                 .then()
@@ -26,7 +26,7 @@ public class MainCategoryResourceTest {
     }
 
     @Test
-    public void testGiveErrorWhenWrongCategory() {
+    void testGiveErrorWhenWrongCategory() {
         given()
                 .when().get("/Een eend")
                 .then()
