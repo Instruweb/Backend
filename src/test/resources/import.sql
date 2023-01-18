@@ -1,5 +1,5 @@
 INSERT INTO users (username, emailaddress, address, postalcode, phonenumber)
-VALUES ('nickwelles', 'nick@welles.com', 'Jan met de korte achternaam straat', '5971PC', '0612345678');
+VALUES ('nickwelles', 'nick@welles.com', 'Peter met de korte achternaam straat', '5971PC', '0612345678');
 
 INSERT INTO main_category (name, image) VALUES ('Gitaren', 'gitaren.png');
 INSERT INTO main_category (name, image) VALUES ('Hoofdtelefoons', 'hoofdtelefoons.png');
